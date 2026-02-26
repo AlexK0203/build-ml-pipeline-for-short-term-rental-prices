@@ -11,7 +11,7 @@ entry_points:
 
       output_artifact:
         description: "Output Artifact"
-        type: strt
+        type: str
 
       output_type:
         description: "Output Type"
@@ -23,10 +23,12 @@ entry_points:
 
       min_price:
         description: "Min Price"
+        required: true
         type: float
 
       max_price:
         description: "Max Price"
+        required: true
         type: float
   
 

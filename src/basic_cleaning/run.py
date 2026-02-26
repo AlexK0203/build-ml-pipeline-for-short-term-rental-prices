@@ -20,6 +20,9 @@ def go(args):
     artifact_local_path = run.use_artifact(args.input_artifact).file()
     df = pd.read_csv(artifact_local_path)
 
+    df = df[df["price"].between(args.min_price, args.max_price)]
+    logger.info(f"Removed rows where price was not between {args.min_price} and {args.max_price}")
+
     df.to_csv("clean_sample.csv", index=False)
 
     artifact = wandb.Artifact(
